@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Bilibili Block & Redirect",
+  "version": "3.0",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["*://www.bilibili.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.bilibili.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
